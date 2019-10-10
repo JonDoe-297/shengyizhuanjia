@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {StartAppGuard} from "./core/start-app.guard";
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'welcome',
     pathMatch: 'full'
   },
   {
@@ -14,7 +15,8 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
-  }
+  },
+  { path: 'welcome', loadChildren: './routers/welcome/welcome.module#WelcomePageModule', canActivate: [StartAppGuard] }
 ];
 
 @NgModule({
