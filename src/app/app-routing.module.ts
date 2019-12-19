@@ -16,7 +16,10 @@ const routes: Routes = [
     path: 'list',
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
   },
-  { path: 'welcome', loadChildren: './routers/welcome/welcome.module#WelcomePageModule', canActivate: [StartAppGuard] }
+  { path: 'welcome', loadChildren: './routers/welcome/welcome.module#WelcomePageModule', canActivate: [StartAppGuard] },
+  { path: 'signup', loadChildren: './routers/signup/signup.module#SignupPageModule' },
+  { path: 'login', loadChildren: './routers/login/login.module#LoginPageModule' },
+  { path: 'forgot-password', loadChildren: './routers/forgot-password/forgot-password.module#ForgotPasswordPageModule' }
 ];
 
 @NgModule({
